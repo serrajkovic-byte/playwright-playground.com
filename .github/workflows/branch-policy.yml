@@ -1,0 +1,20 @@
+name: Branch policy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  validate-branch:
+    name: Validate feature branch name
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_BRANCH: ${{ github.head_ref }}
+    steps:
+      - name: Require the feature branch naming convention
+        run: |
+          if [[ ! "$SOURCE_BRANCH" =~ ^feature/(SHOP|API)-[0-9]{3}-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "Invalid branch name: $SOURCE_BRANCH"
+            echo "Use feature/{SHOP|API}-NNN-short-description, e.g. feature/SHOP-001-product-search."
+            exit 1
+          fi

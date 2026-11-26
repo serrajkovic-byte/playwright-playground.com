@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - master
-      - 'feature/**'
+      - 'PW_playground_*'
   pull_request:
 
 jobs:

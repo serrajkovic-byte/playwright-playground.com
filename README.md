@@ -9,8 +9,10 @@ npm ci
 npx playwright install
 ```
 
-Copy `.env.example` to `.env` and set `BASE_URL` to the application under test.
-The API URL variables are available for the API clients when they are implemented.
+Copy `.env.example` to `.env` to override the default application origin,
+`https://playwright-playground.com`. UI tests use `/shop` as the shop route
+(for example, `page.goto('/shop')`). The API URL variables are reserved for API
+clients when they are implemented.
 
 ## Commands
 

@@ -15,10 +15,11 @@ npx playwright install
 Copy-Item .env.example .env
 ```
 
-`BASE_URL` defaults in `.env.example` to the shop's origin. Change it in `.env`
-when testing another environment. `SHOP_API_URL` and `PRACTICE_API_URL` are
-reserved for future API clients and are not currently consumed. Never put real
-credentials in `.env.example` or commit `.env`.
+The default application origin is `https://playwright-playground.com`. Set
+`BASE_URL` in `.env` to test another environment. UI tests can navigate to
+`/shop` (for example, `page.goto('/shop')`). `SHOP_API_URL` and
+`PRACTICE_API_URL` are reserved for future API clients and are not currently
+consumed. Never put real credentials in `.env.example` or commit `.env`.
 
 Installing dependencies enables the Husky pre-commit hook in this checkout. It
 runs lint and formatting checks across the working tree; fix any failures before

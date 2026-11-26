@@ -12,6 +12,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,8 +21,10 @@ jobs:
           node-version: lts/*
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps
+      - run: npm run lint
+      - run: npm run format:check
       - run: npm run typecheck
+      - run: npx playwright install --with-deps
       - run: npm test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

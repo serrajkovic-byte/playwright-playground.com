@@ -10,13 +10,13 @@ Briefly describe what tests are added/modified and why.
 
 ## ✅ Testing Checklist
 
-- All new tests pass locally (`npm test`)
-- No test flakiness observed (run 3+ times)
-- Test data cleanup is implemented
-- Page objects/fixtures used (no hardcoded selectors)
-- Follows AAA pattern (Arrange, Act, Assert)
-- No secrets committed
-- Code follows team conventions
+- [ ] All new tests pass locally (`npm test`)
+- [ ] No test flakiness observed (run 3+ times)
+- [ ] Test data cleanup is implemented
+- [ ] Page objects/fixtures used (no hardcoded selectors)
+- [ ] Follows AAA pattern (Arrange, Act, Assert)
+- [ ] No secrets committed
+- [ ] Code follows team conventions
 
 ## 📊 Coverage Impact
 

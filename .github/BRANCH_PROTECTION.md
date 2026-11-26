@@ -1,13 +1,12 @@
 # Branch and pull request policy
 
-## Feature branches
+## Branch names
 
-Use `feature/{SHOP|API}-NNN-short-description`, for example:
+Use `PW_playground_Name`, replacing `Name` with a non-empty name without `/`.
+For example:
 
-- `feature/SHOP-001-product-search`
-- `feature/SHOP-002-shopping-cart`
-- `feature/API-001-user-crud`
-- `feature/API-002-authentication`
+- `PW_playground_Ana`
+- `PW_playground_Team`
 
 The `Branch policy` workflow checks this format on every pull request. A branch
 with another name must be renamed before its pull request can pass that check.

@@ -1,14 +1,35 @@
-## Summary
+## 📋 PR Description
 
-<!-- Describe the change and link the related issue. -->
+Briefly describe what tests are added/modified and why.
 
-## Verification
+## 🎯 Test Scenarios Covered
 
-- [ ] Relevant tests pass locally
-- [ ] CI checks pass
-- [ ] A reviewer has been requested
+- Scenario 1
+- Scenario 2
+- Scenario 3
 
-## Review
+## ✅ Testing Checklist
 
-- [ ] This PR is ready for review
-- [ ] Any follow-up work is documented
+- All new tests pass locally (`npm test`)
+- No test flakiness observed (run 3+ times)
+- Test data cleanup is implemented
+- Page objects/fixtures used (no hardcoded selectors)
+- Follows AAA pattern (Arrange, Act, Assert)
+- No secrets committed
+- Code follows team conventions
+
+## 📊 Coverage Impact
+
+Current coverage: XX% Expected after merge: YY%
+
+## 🔗 Related Issues
+
+Closes #XXX
+
+## 👀 Reviewer Notes
+
+Any specific areas you'd like the reviewer to focus on?
+
+---
+
+Note: This PR will be reviewed by @reviewer-assigned-name as per daily assignment.

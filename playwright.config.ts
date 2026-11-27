@@ -30,7 +30,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Application origin; UI tests can navigate to /shop. */
-    baseURL: process.env.BASE_URL || 'https://playwright-playground.com',
+    baseURL: process.env.BASE_URL || 'https://playwright-playground.com/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -38,30 +38,35 @@ export default defineConfig({
 
   /* Configure API, desktop browser, and mobile projects. */
   projects: [
-    {
-      name: 'api',
-      testMatch: '**/api/**/*.spec.ts',
-    },
+  { name: 'setup', testMatch: /.*\.setup\.ts/ },
     {
       name: 'chromium',
       testIgnore: '**/api/**',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
-    {
-      name: 'firefox',
-      testIgnore: '**/api/**',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'webkit',
-      testIgnore: '**/api/**',
-      use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: 'mobile',
-      testIgnore: '**/api/**',
-      use: { ...devices['Pixel 7'] },
-    },
+  {
+    name: 'api',
+    testMatch: '**/api/**/*.spec.ts',
+  },
+  {
+    name: 'firefox',
+    testIgnore: '**/api/**',
+    use: { ...devices['Desktop Firefox'] },
+  },
+  {
+    name: 'webkit',
+    testIgnore: '**/api/**',
+    use: { ...devices['Desktop Safari'] },
+  },
+  {
+    name: 'mobile',
+    testIgnore: '**/api/**',
+    use: { ...devices['Pixel 7'] },
+  },
   ],
 
   /* Run your local dev server before starting the tests */

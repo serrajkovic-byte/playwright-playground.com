@@ -66,10 +66,9 @@ test('places an order for one Compact HD TV through the Shop API', async ({
     expect(created.status(), 'Creating the order failed').toBe(201);
   } finally {
     if (orderId) {
-      const cleanup = await request.post(
-        `/api/shop/orders/${encodeURIComponent(orderId)}/cancel`,
-        { headers },
-      );
+      const cleanup = await request.post(`/api/shop/orders/${encodeURIComponent(orderId)}/cancel`, {
+        headers,
+      });
       await expect(cleanup, 'Cancelling the test order failed').toBeOK();
     }
   }

@@ -38,7 +38,7 @@ export default defineConfig({
 
   /* Configure API, desktop browser, and mobile projects. */
   projects: [
-  { name: 'setup', testMatch: /.*\.setup\.ts/ },
+    { name: 'setup', testMatch: /.*\.setup\.ts/ },
     {
       name: 'chromium',
       testIgnore: '**/api/**',
@@ -48,25 +48,25 @@ export default defineConfig({
       },
       dependencies: ['setup'],
     },
-  {
-    name: 'api',
-    testMatch: '**/api/**/*.spec.ts',
-  },
-  {
-    name: 'firefox',
-    testIgnore: '**/api/**',
-    use: { ...devices['Desktop Firefox'] },
-  },
-  {
-    name: 'webkit',
-    testIgnore: '**/api/**',
-    use: { ...devices['Desktop Safari'] },
-  },
-  {
-    name: 'mobile',
-    testIgnore: '**/api/**',
-    use: { ...devices['Pixel 7'] },
-  },
+    {
+      name: 'api',
+      testMatch: '**/api/**/*.spec.ts',
+    },
+    {
+      name: 'firefox',
+      testIgnore: '**/api/**',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      testIgnore: '**/api/**',
+      use: { ...devices['Desktop Safari'] },
+    },
+    {
+      name: 'mobile',
+      testIgnore: '**/api/**',
+      use: { ...devices['Pixel 7'] },
+    },
   ],
 
   /* Run your local dev server before starting the tests */

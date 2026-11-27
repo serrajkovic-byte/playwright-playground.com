@@ -55,17 +55,27 @@ export default defineConfig({
     {
       name: 'firefox',
       testIgnore: '**/api/**',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'webkit',
       testIgnore: '**/api/**',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'],
+        storageState: 'playwright/.auth/user.json',
+       },
+      dependencies: ['setup'],
     },
     {
       name: 'mobile',
       testIgnore: '**/api/**',
-      use: { ...devices['Pixel 7'] },
+      use: { ...devices['Pixel 7'],
+        storageState: 'playwright/.auth/user.json',
+       },
+      dependencies: ['setup'],
     },
   ],
 

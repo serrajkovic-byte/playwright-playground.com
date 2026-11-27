@@ -33,6 +33,6 @@ export class BaseApiClient {
   }
 
   private resolveUrl(path: string): string {
-    return new URL(path.replace(/^\/+/, ''), this.baseUrl).toString();
+    return new URL(path, this.baseUrl).toString();
   }
 }

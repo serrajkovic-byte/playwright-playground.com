@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUSKY: 0
+      SHOP_EMAIL: ${{ secrets.SHOP_EMAIL }}
+      SHOP_LOCKED_EMAIL: ${{ secrets.SHOP_LOCKED_EMAIL }}
+      SHOP_PASSWORD: ${{ secrets.SHOP_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

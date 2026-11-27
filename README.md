@@ -1,9 +1,10 @@
 # Playwright Automation
 
-Playwright and TypeScript scaffold for web and API tests of the
-[playground shop](https://playwright-playground.com/shop). Page objects, API
-clients and shop tests are not implemented yet; the current example tests
-exercise the Playwright documentation website.
+Playwright and TypeScript tests for the
+[playground shop](https://playwright-playground.com/shop), including API
+registration, isolated cart fixtures and authenticated UI coverage. The
+example tests in `tests/example.spec.ts` exercise the Playwright documentation
+website.
 
 ## Setup
 
@@ -17,9 +18,17 @@ Copy-Item .env.example .env
 
 The default application origin is `https://playwright-playground.com`. Set
 `BASE_URL` in `.env` to test another environment. UI tests can navigate to
-`/shop` (for example, `page.goto('/shop')`). `SHOP_API_URL` and
-`PRACTICE_API_URL` are reserved for future API clients and are not currently
-consumed. Never put real credentials in `.env.example` or commit `.env`.
+`/shop` (for example, `page.goto('/shop')`). `PRACTICE_API_URL` optionally
+overrides the origin for the practice API client; `SHOP_API_URL` is reserved
+for future use. Never put real credentials in `.env.example` or commit `.env`.
+
+The shop API login and website sign-in tests require `SHOP_EMAIL`,
+`SHOP_LOCKED_EMAIL` and `SHOP_PASSWORD` in `.env` or the environment. Use
+the demo accounts shown on the [shop sign-in page](https://playwright-playground.com/shop/sign-in).
+For CI, configure GitHub Actions secrets with those same names; pull requests
+from forks cannot access repository secrets.
+Practice users created through `/api/users` are separate from shop accounts.
+The practice API test removes its own user after verification.
 
 Installing dependencies enables the Husky pre-commit hook in this checkout. It
 runs lint and formatting checks across the working tree; fix any failures before
